@@ -6,11 +6,12 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.enableCors({
-    origin: 'https://react-user-module-ijbk0i2w1-deshrajoffice677-sketchs-projects.vercel.app',
-    credentials: true,
-    methods: 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
-  });
+ app.enableCors({
+  origin: true, // allows all domains
+  credentials: true,
+  methods: 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
+});
+
 
   // Enable Global Validation Pipe
   app.useGlobalPipes(new ValidationPipe({
